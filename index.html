@@ -131,11 +131,18 @@ section{padding-block:clamp(58px,13vw,116px); position:relative}
 .assure .ico{width:16px; height:16px; color:var(--brass-dim)}
 
 /* ---- ticket ------------------------------------------------------------ */
-.ticket{margin-top:38px; background:linear-gradient(160deg,var(--panel-2),var(--panel));
+.hero-media{position:relative; margin-top:36px}
+.hero-shot{position:relative; margin:0; border-radius:var(--r); overflow:hidden;
+  box-shadow:0 40px 90px -50px #000, inset 0 0 0 1px var(--line-2)}
+.hero-shot img{display:block; width:100%; height:auto; aspect-ratio:4/3;
+  object-fit:cover; object-position:50% 42%}
+.hero-shot::after{content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(180deg, rgba(8,8,10,.18) 0%, transparent 34%,
+    rgba(8,8,10,.42) 72%, rgba(8,8,10,.88) 100%)}
+.ticket{position:relative; z-index:2; margin:-68px 14px 0;
+  background:linear-gradient(160deg,var(--panel-2),var(--panel));
   border:1px solid var(--line-2); border-radius:var(--r); position:relative; overflow:hidden;
-  box-shadow:0 30px 70px -40px rgba(0,0,0,.9);
-  animation:float 13s ease-in-out infinite alternate}
-@keyframes float{from{transform:translateY(0) rotate(-.25deg)}to{transform:translateY(-9px) rotate(.35deg)}}
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.95)}
 .ticket::before{content:""; position:absolute; inset:0; background:linear-gradient(115deg,transparent 42%,rgba(228,210,168,.07) 50%,transparent 58%)}
 .ticket-top{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 18px}
 .ticket-top .t-l{display:flex; align-items:center; gap:9px; font-family:var(--f-mono); font-size:.62rem;
@@ -259,7 +266,8 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
   .toast{bottom:32px}
   .hero-cta .btn{min-width:0}
   .hero-in{display:grid; grid-template-columns:1.08fr .92fr; gap:56px; align-items:center}
-  .ticket{margin-top:0}
+  .hero-media{margin-top:0}
+  .ticket{margin:-62px 20px 0}
   .board{grid-template-columns:1fr 1fr; gap:48px}
   .svc{grid-template-columns:1fr 1fr; column-gap:44px}
   .svc li:nth-last-child(2){border-bottom:0}
@@ -267,7 +275,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .aura i, .ticket, .rise{animation:none !important}
+  .aura i, .rise{animation:none !important}
   .reveal{opacity:1 !important; transform:none !important}
   *{transition-duration:.01ms !important}
 }
@@ -346,7 +354,13 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
         </div>
       </div>
 
-      <div class="ticket rise d5">
+      <div class="hero-media rise d5">
+        <figure class="hero-shot">
+          <img src="assets/hero.webp" width="1100" height="1100" loading="eager" decoding="async"
+               alt="Șofer în uniformă preia cheia unei mașini negre la terminalul de Plecări, noaptea"
+               data-i18n-alt="hero-alt">
+        </figure>
+        <div class="ticket">
         <div class="ticket-top">
           <span class="t-l">
             <svg class="ico" aria-hidden="true"><use href="#i-key-round"></use></svg>
@@ -367,6 +381,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
           <svg class="ico" aria-hidden="true"><use href="#i-camera"></use></svg>
           <span data-i18n="tk-foot">14 fotografii ale mașinii, semnate de ambele părți</span>
         </p>
+      </div>
       </div>
     </div>
   </section>
@@ -677,7 +692,8 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     "f-h3": "This page",
     "f-l1": "How it works", "f-l2": "Services", "f-l3": "Drivers", "f-l4": "Questions",
     "f-legal": "Phone bookings — WhatsApp coming soon",
-    "bar-call": "Call us"
+    "bar-call": "Call us",
+    "hero-alt": "A uniformed driver taking the key of a black car at the Departures terminal at night"
   };
 
   var TOAST = {
@@ -688,6 +704,9 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
   var nodes = document.querySelectorAll("[data-i18n]");
   nodes.forEach(function (el) { el.dataset.ro = el.innerHTML; });
 
+  var alts = document.querySelectorAll("[data-i18n-alt]");
+  alts.forEach(function (el) { el.dataset.roAlt = el.getAttribute("alt") || ""; });
+
   var buttons = document.querySelectorAll(".lang button");
   var lang = "ro";
 
@@ -696,6 +715,10 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     nodes.forEach(function (el) {
       var key = el.getAttribute("data-i18n");
       el.innerHTML = lang === "en" ? (EN[key] || el.dataset.ro) : el.dataset.ro;
+    });
+    alts.forEach(function (el) {
+      var key = el.getAttribute("data-i18n-alt");
+      el.setAttribute("alt", lang === "en" ? (EN[key] || el.dataset.roAlt) : el.dataset.roAlt);
     });
     document.documentElement.lang = lang;
     buttons.forEach(function (b) {
