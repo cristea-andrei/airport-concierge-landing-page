@@ -203,15 +203,6 @@ section{padding-block:clamp(58px,13vw,116px); position:relative}
 .faq details[open] summary .ico{transform:rotate(180deg)}
 .faq p{color:var(--muted); font-size:.9rem; padding-bottom:20px; max-width:66ch}
 
-/* ---- closing cta ------------------------------------------------------- */
-.close-cta{text-align:center; border-top:1px solid var(--line)}
-.close-cta h2{margin-bottom:16px}
-.close-cta .lead{margin-inline:auto; margin-bottom:30px}
-.tel{display:inline-flex; align-items:center; gap:12px; font-family:var(--f-mono); font-size:clamp(1.3rem,6vw,2rem);
-  color:var(--brass-hi); text-decoration:none; letter-spacing:.02em; font-variant-numeric:tabular-nums}
-.tel .ico{width:22px; height:22px}
-.close-cta .btn{margin-top:28px; width:100%; max-width:420px}
-
 /* ---- footer ------------------------------------------------------------ */
 footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgba(8,8,10,.6)}
 .f-grid{display:grid; gap:28px}
@@ -264,7 +255,6 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
   .bar{display:none}
   .hdr-call{display:inline-flex; min-height:42px; padding:0 18px; font-size:.86rem}
   .toast{bottom:32px}
-  .hero-cta .btn-num{display:none}
   .hero-cta .btn{min-width:0}
   .hero-in{display:grid; grid-template-columns:1.08fr .92fr; gap:56px; align-items:center}
   .ticket{margin-top:0}
@@ -340,8 +330,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
         <div class="hero-cta rise d4">
           <a class="btn btn-primary" href="tel:+40741220600">
             <svg class="ico" aria-hidden="true"><use href="#i-phone"></use></svg>
-            <span data-i18n="cta-call">Sunați 24/7</span>
-            <span class="btn-num">+40 741 220 600</span>
+            <span data-i18n="cta-call">Sunați-ne 24/7</span>
           </a>
           <button class="btn btn-ghost" type="button" data-wa>
             <svg class="ico ico--solid" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
@@ -537,19 +526,6 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     </div>
   </section>
 
-  <section class="close-cta">
-    <div class="wrap">
-      <h2 data-i18n="h-cta">Rezervarea se face la telefon</h2>
-      <p class="lead" data-i18n="l-cta">Un apel de două minute. Ne spuneți zborul și terminalul, noi vă spunem tariful și numele șoferului.</p>
-      <a class="tel" href="tel:+40741220600">
-        <svg class="ico" aria-hidden="true"><use href="#i-phone"></use></svg>+40 741 220 600
-      </a>
-      <a class="btn btn-primary" href="tel:+40741220600">
-        <svg class="ico" aria-hidden="true"><use href="#i-phone"></use></svg>
-        <span data-i18n="cta-call2">Sunați acum</span>
-      </a>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -594,7 +570,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
 <nav class="bar" aria-label="Rezervare">
   <a class="btn btn-primary" href="tel:+40741220600">
     <svg class="ico" aria-hidden="true"><use href="#i-phone"></use></svg>
-    <span data-i18n="bar-call">Sunați</span>
+    <span data-i18n="bar-call">Sunați-ne</span>
   </a>
   <button class="btn btn-ghost" type="button" data-wa>
     <svg class="ico ico--solid" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
@@ -691,9 +667,6 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     "a5": "On return, by card or cash, with a receipt. No deposit, nothing held on your card when you book.",
     "q6": "Do you take electric cars?",
     "a6": "Yes. If you want, we put it on charge during your trip and you find it charged on return.",
-    "h-cta": "Booking happens on the phone",
-    "l-cta": "A two-minute call. You give us the flight and the terminal, we give you the price and your driver's name.",
-    "cta-call2": "Call now",
     "f-about": "Airport valet in Bucharest, for Otopeni and Băneasa. Bookings 24/7, by phone.",
     "f-h1": "Contact", "f-wa": "WhatsApp", "f-hours": "Non-stop, holidays included",
     "f-h2": "Airports",
@@ -702,7 +675,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     "f-h3": "This page",
     "f-l1": "How it works", "f-l2": "Services", "f-l3": "Drivers", "f-l4": "Questions",
     "f-legal": "Phone bookings — WhatsApp coming soon",
-    "bar-call": "Call"
+    "bar-call": "Call us"
   };
 
   var TOAST = {
@@ -803,7 +776,6 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     });
     arm(document.querySelectorAll(".note"), false);
     arm(document.querySelectorAll(".faq details"), true);
-    arm(document.querySelectorAll(".close-cta .wrap > *"), true);
     arm(document.querySelectorAll(".f-col"), true);
   }
 })();
