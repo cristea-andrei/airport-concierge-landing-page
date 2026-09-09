@@ -8,7 +8,7 @@
 <title>Cheia Airport Valet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
   --ink:#08080A; --ink-2:#0D0D10; --panel:#131316; --panel-2:#1A1A20;
@@ -17,7 +17,7 @@
   --text:#EDEBE6; --muted:#9A968D; --faint:#6C695F;
   --pad:20px; --maxw:1120px;
   --r:14px;
-  --f-display:"Bodoni Moda", "Times New Roman", serif;
+  --f-display:"Archivo", "Helvetica Neue", Arial, sans-serif;
   --f-body:"Archivo", "Helvetica Neue", Arial, sans-serif;
   --f-mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
@@ -74,9 +74,10 @@ a{color:inherit}
 .eyebrow{font-family:var(--f-mono); font-size:.68rem; letter-spacing:.2em; text-transform:uppercase;
   color:var(--brass); display:flex; align-items:center; gap:9px; margin:0 0 18px}
 .eyebrow .ico{width:15px; height:15px}
-h1,h2,h3{font-family:var(--f-display); font-weight:400; text-wrap:balance; margin:0}
-h1{font-size:clamp(2.5rem,10.5vw,4.6rem); line-height:1.02; letter-spacing:-.015em}
-h2{font-size:clamp(1.9rem,7.4vw,2.9rem); line-height:1.1; letter-spacing:-.01em}
+h1,h2,h3{margin:0; text-wrap:balance}
+h1,h2{font-family:var(--f-display); font-weight:600; font-variation-settings:"wdth" 110}
+h1{font-size:clamp(2.15rem,8.6vw,3.85rem); line-height:1.06; letter-spacing:-.025em}
+h2{font-size:clamp(1.72rem,6.4vw,2.5rem); line-height:1.12; letter-spacing:-.022em}
 h3{font-size:1.12rem; line-height:1.35; font-family:var(--f-body); font-weight:600; letter-spacing:-.005em}
 p{margin:0}
 .lead{color:var(--muted); font-size:1.02rem; line-height:1.68; max-width:62ch}
@@ -106,7 +107,8 @@ section{padding-block:clamp(58px,13vw,116px); position:relative}
   border-bottom:1px solid var(--line)}
 .hdr-in{display:flex; align-items:center; justify-content:space-between; gap:14px; min-height:62px}
 .brand{display:flex; align-items:baseline; gap:9px; text-decoration:none}
-.brand b{font-family:var(--f-display); font-weight:500; font-size:1.32rem; letter-spacing:.1em; color:var(--text)}
+.brand b{font-family:var(--f-display); font-weight:600; font-variation-settings:"wdth" 112;
+  font-size:1.18rem; letter-spacing:.13em; color:var(--text)}
 .brand span{font-family:var(--f-mono); font-size:.56rem; letter-spacing:.22em; color:var(--faint); text-transform:uppercase}
 .hdr-r{display:flex; align-items:center; gap:10px}
 .lang{display:flex; border:1px solid var(--line-2); border-radius:999px; overflow:hidden; background:rgba(255,255,255,.02)}
@@ -120,7 +122,7 @@ section{padding-block:clamp(58px,13vw,116px); position:relative}
 .hero{padding-top:clamp(40px,10vw,84px); padding-bottom:clamp(48px,11vw,96px)}
 .hero h1{margin-bottom:20px}
 .hero h1 > *{display:block}
-.hero h1 em{font-style:italic; color:var(--brass-hi)}
+.hero h1 em{font-style:normal; color:var(--brass-hi)}
 .hero .lead{font-size:1.06rem}
 .hero-cta{display:flex; flex-direction:column; gap:12px; margin-top:30px}
 .hero-cta .btn{width:100%}
