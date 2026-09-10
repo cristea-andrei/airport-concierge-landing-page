@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#08080A">
 <meta name="description" content="Mergeti la aeroport cu propria masina si opriti la Plecari. Preluam masina de la terminal si v-o aducem la Sosiri cand aterizati. Fara parcare cu etaje, fara microbuz, fara timp pierdut. Otopeni si Baneasa, 24/7.">
-<title>Cheia Airport Valet</title>
+<title>Valet 24</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -109,7 +109,9 @@ section{padding-block:clamp(58px,13vw,116px); position:relative}
 .brand{display:flex; align-items:baseline; gap:9px; text-decoration:none}
 .brand b{font-family:var(--f-display); font-weight:600; font-variation-settings:"wdth" 112;
   font-size:1.18rem; letter-spacing:.13em; color:var(--text)}
+.brand b, .brand span{white-space:nowrap}
 .brand span{font-family:var(--f-mono); font-size:.56rem; letter-spacing:.22em; color:var(--faint); text-transform:uppercase}
+@media (max-width:479px){.brand span{display:none}}
 .hdr-r{display:flex; align-items:center; gap:10px}
 .lang{display:flex; border:1px solid var(--line-2); border-radius:999px; overflow:hidden; background:rgba(255,255,255,.02)}
 .lang button{appearance:none; background:none; border:0; cursor:pointer; color:var(--faint);
@@ -313,7 +315,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
 </svg>
 <header class="hdr">
   <div class="wrap hdr-in">
-    <a class="brand" href="#top"><b>CHEIA</b><span>Airport Valet</span></a>
+    <a class="brand" href="#top"><b>VALET 24</b><span>Otopeni &middot; Băneasa</span></a>
     <div class="hdr-r">
       <div class="lang" role="group" aria-label="Limba / Language">
         <button type="button" data-lang="ro" aria-pressed="true">RO</button>
@@ -333,7 +335,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
       <div>
         <p class="eyebrow rise d1">
           <svg class="ico" aria-hidden="true"><use href="#i-plane"></use></svg>
-          <span data-i18n="eyebrow">Otopeni &middot; Băneasa &mdash; valet 24/7</span>
+          <span data-i18n="eyebrow">Valet de aeroport, non-stop</span>
         </p>
         <h1 class="rise d2"><span data-i18n="h1a">Veniți cu propria mașină.</span> <em data-i18n="h1b">Noi ne ocupăm de rest.</em> <span data-i18n="h1c">Timpul rămâne al dumneavoastră.</span></h1>
         <p class="lead rise d3" data-i18n="lead">Plecați de acasă cu mașina pe care o cunoașteți — scaunul reglat cum vă place, muzica dumneavoastră. Opriți la Plecări, ne dați cheia, intrați în terminal. Fără etajul 4, fără microbuz de navetă, fără timp pierdut la fiecare capăt.</p>
@@ -554,7 +556,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
   <div class="wrap">
     <div class="f-grid">
       <div class="f-col">
-        <a class="brand" href="#top"><b>CHEIA</b><span>Airport Valet</span></a>
+        <a class="brand" href="#top"><b>VALET 24</b><span>Otopeni &middot; Băneasa</span></a>
         <p class="lead" style="margin-top:14px; font-size:.86rem" data-i18n="f-about">Mergeți la aeroport cu mașina dumneavoastră și opriți la Plecări. De acolo ne ocupăm noi. Otopeni și Băneasa, 24/7.</p>
       </div>
       <div class="f-col">
@@ -583,7 +585,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
       </div>
     </div>
     <div class="f-bot">
-      <span>&copy; 2026 Cheia Airport Valet</span>
+      <span>&copy; 2026 Valet 24</span>
       <span data-i18n="f-legal">Rezervări telefonice &mdash; WhatsApp în curând</span>
     </div>
   </div>
@@ -607,7 +609,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
   "use strict";
 
   var EN = {
-    "eyebrow": "Otopeni · Băneasa — valet 24/7",
+    "eyebrow": "Airport valet, around the clock",
     "h1a": "Arrive in your own car.", "h1b": "We take it from there.", "h1c": "Your time stays yours.",
     "lead": "Leave home in the car you actually know — your seat where you set it, your own music. Pull up at Departures, hand us the key, walk in. No level four, no shuttle van, no time lost at either end.",
     "cta-call": "Call us 24/7", "cta-wa": "Book on WhatsApp",
@@ -732,7 +734,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     buttons.forEach(function (b) {
       b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
     });
-    try { localStorage.setItem("cheia-lang", lang); } catch (e) {}
+    try { localStorage.setItem("valet24-lang", lang); } catch (e) {}
   }
 
   buttons.forEach(function (b) {
@@ -740,7 +742,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
   });
 
   var stored = null;
-  try { stored = localStorage.getItem("cheia-lang"); } catch (e) {}
+  try { stored = localStorage.getItem("valet24-lang"); } catch (e) {}
   if (stored === "en") apply("en");
 
   var toast = document.getElementById("toast");

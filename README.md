@@ -1,6 +1,6 @@
-# Cheia — Airport Valet (landing page)
+# Valet 24 — airport valet (landing page)
 
-Landing page for a meet-and-greet valet service at Bucharest's two airports:
+Landing page for Valet 24, a meet-and-greet valet service at Bucharest's two airports:
 Otopeni (OTP, Henri Coandă) and Băneasa (BBU, Aurel Vlaicu). The driver takes
 the car at Departures and brings it back to Arrivals on return.
 
