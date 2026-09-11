@@ -12,7 +12,7 @@
 <style>
 :root{
   --ink:#08080A; --ink-2:#0D0D10; --panel:#131316; --panel-2:#1A1A20;
-  --line:#26262B; --line-2:#33333B;
+  --line:#26262B; --line-2:#33333B; --line-t:rgba(255,255,255,.09);
   --brass:#C2A46B; --brass-hi:#E4D2A8; --brass-dim:#8A7442;
   --text:#EDEBE6; --muted:#9A968D; --faint:#6C695F;
   --pad:20px; --maxw:1120px;
@@ -142,8 +142,9 @@ section{padding-block:clamp(58px,13vw,116px); position:relative}
   background:linear-gradient(180deg, rgba(8,8,10,.18) 0%, transparent 34%,
     rgba(8,8,10,.42) 72%, rgba(8,8,10,.88) 100%)}
 .ticket{position:relative; z-index:2; margin:-68px 14px 0;
-  background:linear-gradient(160deg,var(--panel-2),var(--panel));
-  border:1px solid var(--line-2); border-radius:var(--r); position:relative; overflow:hidden;
+  background:rgba(12,12,15,.62);
+  backdrop-filter:blur(16px) saturate(125%); -webkit-backdrop-filter:blur(16px) saturate(125%);
+  border:1px solid var(--line-2); border-radius:var(--r); overflow:hidden;
   box-shadow:0 30px 70px -30px rgba(0,0,0,.95)}
 .ticket::before{content:""; position:absolute; inset:0; background:linear-gradient(115deg,transparent 42%,rgba(228,210,168,.07) 50%,transparent 58%)}
 .ticket-top{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 18px}
@@ -151,19 +152,18 @@ section{padding-block:clamp(58px,13vw,116px); position:relative}
   letter-spacing:.18em; text-transform:uppercase; color:var(--brass)}
 .ticket-top .t-r{font-family:var(--f-mono); font-size:.58rem; letter-spacing:.14em; color:var(--faint);
   border:1px solid var(--line-2); border-radius:999px; padding:3px 9px; text-transform:uppercase}
-.perf{border-top:1px dashed var(--line-2); position:relative}
-.perf::before,.perf::after{content:""; position:absolute; top:-9px; width:18px; height:18px;
-  border-radius:50%; background:var(--ink)}
-.perf::before{left:-10px} .perf::after{right:-10px}
-.ticket-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); position:relative}
-.ticket-grid div{background:var(--panel); padding:14px 16px}
+.perf{border-top:1px dashed rgba(255,255,255,.15)}
+.ticket-grid{display:grid; grid-template-columns:1fr 1fr; position:relative}
+.ticket-grid div{padding:14px 16px; border-bottom:1px solid var(--line-t)}
+.ticket-grid div:nth-child(odd){border-right:1px solid var(--line-t)}
+.ticket-grid div:nth-last-child(-n+2){border-bottom:0}
 .ticket-grid dt{font-family:var(--f-mono); font-size:.56rem; letter-spacing:.16em; text-transform:uppercase;
   color:var(--faint); margin-bottom:5px}
 .ticket-grid dd{margin:0; display:flex; align-items:center; min-height:32px;
   font-family:var(--f-mono); font-size:1rem; line-height:1.2; color:var(--text);
   font-variant-numeric:tabular-nums}
 .ticket-grid dd.big{font-size:1.5rem; line-height:1.1; color:var(--brass-hi); letter-spacing:.02em}
-.ticket-foot{display:flex; align-items:center; gap:9px; padding:13px 16px; border-top:1px solid var(--line);
+.ticket-foot{display:flex; align-items:center; gap:9px; padding:13px 16px; border-top:1px solid var(--line-t);
   font-size:.76rem; color:var(--muted); position:relative}
 .ticket-foot .ico{width:15px; height:15px; color:var(--brass-dim)}
 
