@@ -109,9 +109,14 @@ section{padding-block:clamp(58px,13vw,116px); position:relative}
 .brand{display:flex; align-items:baseline; gap:9px; text-decoration:none}
 .brand b{font-family:var(--f-display); font-weight:600; font-variation-settings:"wdth" 112;
   font-size:1.18rem; letter-spacing:.13em; color:var(--text)}
-.brand b, .brand span{white-space:nowrap}
-.brand span{font-family:var(--f-mono); font-size:.56rem; letter-spacing:.22em; color:var(--faint); text-transform:uppercase}
-@media (max-width:479px){.brand span{display:none}}
+.brand b, .brand > span{white-space:nowrap}
+.brand > span{font-family:var(--f-mono); font-size:.56rem; letter-spacing:.22em; color:var(--faint); text-transform:uppercase}
+@media (max-width:479px){.brand > span{display:none}}
+.brand b .n{color:var(--brass)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .brand b .n{background:linear-gradient(180deg,var(--brass-hi),var(--brass));
+    -webkit-background-clip:text; background-clip:text; color:transparent}
+}
 .hdr-r{display:flex; align-items:center; gap:10px}
 .lang{display:flex; border:1px solid var(--line-2); border-radius:999px; overflow:hidden; background:rgba(255,255,255,.02)}
 .lang button{appearance:none; background:none; border:0; cursor:pointer; color:var(--faint);
@@ -330,7 +335,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
 </svg>
 <header class="hdr">
   <div class="wrap hdr-in">
-    <a class="brand" href="#top"><b>VALET 24</b><span>Otopeni &middot; Băneasa</span></a>
+    <a class="brand" href="#top"><b>VALET <span class="n">24</span></b><span>Otopeni &middot; Băneasa</span></a>
     <div class="hdr-r">
       <div class="lang" role="group" aria-label="Limba / Language">
         <button type="button" data-lang="ro" aria-pressed="true">RO</button>
@@ -621,7 +626,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
   <div class="wrap">
     <div class="f-grid">
       <div class="f-col">
-        <a class="brand" href="#top"><b>VALET 24</b><span>Otopeni &middot; Băneasa</span></a>
+        <a class="brand" href="#top"><b>VALET <span class="n">24</span></b><span>Otopeni &middot; Băneasa</span></a>
         <p class="lead" style="margin-top:14px; font-size:.86rem" data-i18n="f-about">Mergi la aeroport cu mașina ta și oprești la Plecări. De acolo ne ocupăm noi. Otopeni și Băneasa, 24/7.</p>
       </div>
       <div class="f-col">
