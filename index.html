@@ -180,18 +180,14 @@ section{padding-block:clamp(58px,13vw,116px); position:relative}
 .step:last-child{border-bottom:0}
 
 /* ---- airports ---------------------------------------------------------- */
-.ports{display:grid; gap:16px}
+.ports{display:grid; grid-template-columns:1fr 1fr; gap:14px}
 .port{background:linear-gradient(165deg,rgba(26,26,32,.72),rgba(19,19,22,.72));
   border:1px solid var(--line); border-radius:var(--r); padding:24px 20px;
   backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px)}
 .port-code{display:flex; align-items:baseline; gap:12px; margin-bottom:4px}
 .port-code b{font-family:var(--f-mono); font-size:2.1rem; font-weight:500; color:var(--brass-hi); letter-spacing:.04em; line-height:1}
 .port-code span{font-family:var(--f-mono); font-size:.6rem; letter-spacing:.16em; color:var(--faint); text-transform:uppercase}
-.port h3{margin-bottom:12px}
-.port p{color:var(--muted); font-size:.92rem}
-.port ul{list-style:none; margin:18px 0 0; padding:0; display:grid; gap:10px}
-.port li{display:flex; gap:10px; align-items:flex-start; font-size:.86rem; color:var(--muted)}
-.port li .ico{width:16px; height:16px; color:var(--brass-dim); margin-top:3px}
+.port h3{margin-bottom:0}
 
 /* ---- services / protocol ------------------------------------------------ */
 .svc{list-style:none; margin:0; padding:0; display:grid}
@@ -220,6 +216,7 @@ section{padding-block:clamp(58px,13vw,116px); position:relative}
 .plan-price b{font-family:var(--f-display); font-weight:600; font-variation-settings:"wdth" 110;
   font-size:2.5rem; line-height:1; letter-spacing:-.02em; color:var(--text); font-variant-numeric:tabular-nums}
 .plan-price b.ask{font-size:1.5rem; color:var(--brass-hi)}
+.plan-lei{font-family:var(--f-mono); font-size:.82rem; color:var(--faint); padding-bottom:4px; font-variant-numeric:tabular-nums}
 .plan-unit{font-size:.8rem; color:var(--faint); margin-bottom:20px}
 .plan ul{list-style:none; margin:0; padding:20px 0 0; display:grid; gap:11px; border-top:1px solid var(--line)}
 .plan li{display:flex; gap:10px; align-items:flex-start; font-size:.88rem; color:var(--muted)}
@@ -283,7 +280,6 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
   :root{--pad:32px}
   .hero-cta{flex-direction:row; flex-wrap:wrap}
   .hero-cta .btn{width:auto; min-width:250px}
-  .ports{grid-template-columns:1fr 1fr}
   .f-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media (min-width:900px){
@@ -394,7 +390,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
         <div class="ticket-top">
           <span class="t-l">
             <svg class="ico" aria-hidden="true"><use href="#i-key-round"></use></svg>
-            <span data-i18n="tk-title">Tichet de custodie</span>
+            <span data-i18n="tk-title">Rezervare</span>
           </span>
           <span class="t-r" data-i18n="tk-demo">exemplu</span>
         </div>
@@ -459,22 +455,10 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
         <div class="port">
           <div class="port-code"><b>OTP</b><span>Henri Coandă</span></div>
           <h3 data-i18n="p1t">Otopeni</h3>
-          <p data-i18n="p1d">Preluare și predare la bordura terminalului, pe partea de Plecări, respectiv Sosiri. Acoperim toate cursele, inclusiv cele de la cinci dimineața și cele care aterizează după miezul nopții.</p>
-          <ul>
-            <li><svg class="ico" aria-hidden="true"><use href="#i-clock"></use></svg><span data-i18n="p1a">Disponibil 24 de ore din 24, șapte zile pe săptămână</span></li>
-            <li><svg class="ico" aria-hidden="true"><use href="#i-car-front"></use></svg><span data-i18n="p1b">Autoturisme, SUV-uri și mașini electrice</span></li>
-            <li><svg class="ico" aria-hidden="true"><use href="#i-calendar-clock"></use></svg><span data-i18n="p1c">De la o zi până la câteva săptămâni</span></li>
-          </ul>
         </div>
         <div class="port">
           <div class="port-code"><b>BBU</b><span>Aurel Vlaicu</span></div>
           <h3 data-i18n="p2t">Băneasa</h3>
-          <p data-i18n="p2d">Aviație privată și de business. Preluarea se face la terminalul de business aviation, coordonat cu compania de handling, astfel încât mașina să fie lângă aeronavă la ora potrivită.</p>
-          <ul>
-            <li><svg class="ico" aria-hidden="true"><use href="#i-headset"></use></svg><span data-i18n="p2a">Coordonare directă cu operatorul de handling</span></li>
-            <li><svg class="ico" aria-hidden="true"><use href="#i-plane"></use></svg><span data-i18n="p2b">Adaptăm ora la modificările de plan de zbor</span></li>
-            <li><svg class="ico" aria-hidden="true"><use href="#i-user-round-check"></use></svg><span data-i18n="p2c">Discreție totală, același șofer de fiecare dată</span></li>
-          </ul>
         </div>
       </div>
     </div>
@@ -485,7 +469,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-file-text"></use></svg><span data-i18n="eb-svc">Servicii</span></p>
-        <h2 data-i18n="h-svc">Ce puteți cere</h2>
+        <h2 data-i18n="h-svc">Ce poți cere</h2>
       </div>
       <ul class="svc">
         <li>
@@ -527,7 +511,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
       <div class="plans">
         <article class="plan">
           <div class="plan-top"><span class="plan-name" data-i18n="k1n">Esențial</span></div>
-          <p class="plan-price"><b>45 €</b></p>
+          <p class="plan-price"><b>45 €</b><span class="plan-lei">≈ 240 lei</span></p>
           <p class="plan-unit" data-i18n="k1u">per călătorie, dus și întors</p>
           <ul>
         <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k1a">Preluare la Plecări, predare la Sosiri</span></li>
@@ -541,7 +525,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
 
         <article class="plan plan--pick">
           <div class="plan-top"><span class="plan-name" data-i18n="k2n">Complet</span><span class="plan-tag" data-i18n="k2tag">cel mai cerut</span></div>
-          <p class="plan-price"><b>95 €</b></p>
+          <p class="plan-price"><b>95 €</b><span class="plan-lei">≈ 500 lei</span></p>
           <p class="plan-unit" data-i18n="k2u">per călătorie, dus și întors</p>
           <ul>
         <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k2a"><b>Tot ce include Esențial</b></span></li>
@@ -634,7 +618,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
         </details>
         <details>
           <summary><span data-i18n="q7">De ce nu parchez pur și simplu în parcarea aeroportului?</span><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"></use></svg></summary>
-          <p data-i18n="a7">Poți, și te costă mai puțin. Diferența este timpul: douăzeci de minute la plecare ca să găsiți loc și să prindeți naveta, încă douăzeci la întoarcere, plus drumul cu bagajele prin parcare. Noi îți luăm cele patruzeci de minute și îți lăsăm mașina în fața terminalului.</p>
+          <p data-i18n="a7">Poți, și te costă mai puțin. Diferența este timpul: douăzeci de minute la plecare ca să găsești loc și să prinzi naveta, încă douăzeci la întoarcere, plus drumul cu bagajele prin parcare. Noi îți luăm cele patruzeci de minute și îți lăsăm mașina în fața terminalului.</p>
         </details>
       </div>
     </div>
@@ -708,7 +692,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     "as2": "Vetted, experienced drivers",
     "as3": "Covered, monitored parking",
     "as4": "Three minutes curbside, going out and coming back",
-    "tk-title": "Custody ticket", "tk-demo": "example",
+    "tk-title": "Booking", "tk-demo": "example",
     "tk-port": "Airport", "tk-term": "Terminal", "tk-term-v": "Departures",
     "tk-flight": "Flight", "tk-time": "Handover", "tk-driver": "Assigned driver", "tk-km": "Odometer at handover",
     "tk-foot": "14 photographs of the car, signed by both parties",
@@ -732,15 +716,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     "s7d": "Same photographs, same odometer, checked together. You sign and you are on the road in three minutes.",
     "eb-ports": "Coverage", "h-ports": "Two airports",
     "p1t": "Otopeni",
-    "p1d": "Pick-up and drop-off at the terminal curb, Departures side and Arrivals side. We cover every flight, including the five in the morning departures and the ones that land after midnight.",
-    "p1a": "Available twenty-four hours a day, seven days a week",
-    "p1b": "Cars, SUVs and electric vehicles",
-    "p1c": "From a single day to several weeks",
     "p2t": "Băneasa",
-    "p2d": "Private and business aviation. Pick-up happens at the business aviation terminal, coordinated with your handling company, so the car is beside the aircraft at the right moment.",
-    "p2a": "Coordinated directly with your handling agent",
-    "p2b": "We follow changes to the flight plan",
-    "p2c": "Complete discretion, the same driver every time",
     "eb-svc": "Services", "h-svc": "What you can ask for",
     "v1t": "Valet out and valet back",
     "v1d": "The core service: we take the car at Departures and bring it to you at Arrivals. You never set foot in a car park or on a shuttle bus.",
