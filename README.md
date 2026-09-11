@@ -19,9 +19,9 @@ python3 -m http.server 8000    # then open http://localhost:8000
 
 - Romanian by default, English via the RO/EN toggle in the header. The choice is
   remembered in the browser; visitors on a non-Romanian browser get English first.
-- Booking by phone (`tel:` link, +40 741 220 600) plus a placeholder WhatsApp
-  button that shows a "coming soon" message. Wire it up later by pointing the
-  `[data-wa]` buttons at `https://wa.me/40741220600`.
+- Booking by phone (`tel:` link) and on WhatsApp (`wa.me/40741220600`), both on
+  +40 741 220 600. The WhatsApp links carry a prefilled first message that
+  follows the RO/EN toggle; the text lives in `WA_TEXT` in the script.
 - Icons come from the Lucide and Simple Icons packages, inlined as an SVG sprite
   so the page has no runtime dependency on a CDN.
 - The hero photograph is AI-generated. Replace it with a real photo of your own

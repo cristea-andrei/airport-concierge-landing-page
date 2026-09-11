@@ -257,13 +257,6 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
 .bar{transition:transform .38s cubic-bezier(.22,.68,.24,1), opacity .3s ease}
 .bar[data-hidden="true"]{transform:translateY(118%); opacity:0; pointer-events:none}
 
-/* ---- toast ------------------------------------------------------------- */
-.toast{position:fixed; left:50%; bottom:calc(88px + env(safe-area-inset-bottom)); transform:translate(-50%,14px);
-  z-index:60; background:var(--panel-2); border:1px solid var(--line-2); border-radius:12px;
-  padding:13px 18px; font-size:.86rem; color:var(--text); max-width:calc(100vw - 40px); text-align:center;
-  box-shadow:0 24px 50px -24px #000; opacity:0; pointer-events:none; transition:opacity .28s ease, transform .28s ease}
-.toast.on{opacity:1; transform:translate(-50%,0)}
-
 /* ---- load sequence ----------------------------------------------------- */
 .rise{animation:rise .85s cubic-bezier(.22,.68,.24,1) both}
 .d1{animation-delay:.06s} .d2{animation-delay:.14s} .d3{animation-delay:.22s}
@@ -287,7 +280,6 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
   body{padding-bottom:0}
   .bar{display:none}
   .hdr-call{display:inline-flex; min-height:42px; padding:0 18px; font-size:.86rem}
-  .toast{bottom:32px}
   .hero-cta .btn{min-width:0}
   .hero-in{display:grid; grid-template-columns:1.08fr .92fr; gap:56px; align-items:center}
   .hero-media{margin-top:0}
@@ -367,10 +359,10 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
             <svg class="ico" aria-hidden="true"><use href="#i-phone"></use></svg>
             <span data-i18n="cta-call">Sună-ne 24/7</span>
           </a>
-          <button class="btn btn-ghost" type="button" data-wa>
+          <a class="btn btn-ghost" href="https://wa.me/40741220600" target="_blank" rel="noopener" data-wa>
             <svg class="ico ico--solid" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
             <span>WhatsApp</span>
-          </button>
+          </a>
         </div>
         <div class="assure rise d5">
           <div><svg class="ico" aria-hidden="true"><use href="#i-clock"></use></svg><span data-i18n="as1">Program 24/7, inclusiv de sărbători</span></div>
@@ -636,7 +628,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
         <h4 data-i18n="f-h1">Contact</h4>
         <ul>
           <li><a href="tel:+40741220600" class="btn-num">+40 741 220 600</a></li>
-          <li><a href="#" data-wa data-i18n="f-wa">WhatsApp</a></li>
+          <li><a href="https://wa.me/40741220600" target="_blank" rel="noopener" data-wa data-i18n="f-wa">WhatsApp</a></li>
           <li data-i18n="f-hours">Non-stop, inclusiv sărbători</li>
         </ul>
       </div>
@@ -660,7 +652,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     </div>
     <div class="f-bot">
       <span>&copy; 2026 Valet 24</span>
-      <span data-i18n="f-legal">Rezervări telefonice &mdash; WhatsApp în curând</span>
+      <span data-i18n="f-legal">Rezervări la telefon și pe WhatsApp, non-stop</span>
     </div>
   </div>
 </footer>
@@ -670,13 +662,12 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     <svg class="ico" aria-hidden="true"><use href="#i-phone"></use></svg>
     <span data-i18n="bar-call">Sună-ne</span>
   </a>
-  <button class="btn btn-ghost" type="button" data-wa>
+  <a class="btn btn-ghost" href="https://wa.me/40741220600" target="_blank" rel="noopener" data-wa>
     <svg class="ico ico--solid" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
     <span>WhatsApp</span>
-  </button>
+  </a>
 </nav>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (function () {
@@ -787,15 +778,17 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     "f-p2": "BBU — Aurel Vlaicu, Băneasa",
     "f-h3": "This page",
     "f-l1": "How it works", "f-l2": "Services", "f-l3": "Drivers", "f-l4": "Questions",
-    "f-legal": "Phone bookings — WhatsApp coming soon",
+    "f-legal": "Bookings by phone and on WhatsApp, around the clock",
     "bar-call": "Call us",
     "hero-alt": "A uniformed driver taking the key of a black car at the Departures terminal at night"
   };
 
-  var TOAST = {
-    ro: "WhatsApp este în pregătire. Până atunci, sună-ne la +40 741 220 600.",
-    en: "WhatsApp is not live yet. Until then, call us on +40 741 220 600."
+  /* First message, prefilled in whichever language is showing. */
+  var WA_TEXT = {
+    ro: "Bună ziua! Aș vrea o rezervare Valet 24.",
+    en: "Hello! I would like to book Valet 24."
   };
+  var waLinks = document.querySelectorAll("[data-wa]");
 
   var nodes = document.querySelectorAll("[data-i18n]");
   nodes.forEach(function (el) { el.dataset.ro = el.innerHTML; });
@@ -816,6 +809,9 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
       var key = el.getAttribute("data-i18n-alt");
       el.setAttribute("alt", lang === "en" ? (EN[key] || el.dataset.roAlt) : el.dataset.roAlt);
     });
+    waLinks.forEach(function (el) {
+      el.href = "https://wa.me/40741220600?text=" + encodeURIComponent(WA_TEXT[lang]);
+    });
     document.documentElement.lang = lang;
     buttons.forEach(function (b) {
       b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
@@ -827,21 +823,12 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     b.addEventListener("click", function () { apply(b.dataset.lang); });
   });
 
+  apply("ro");
+
   var stored = null;
   try { stored = localStorage.getItem("valet24-lang"); } catch (e) {}
   if (stored === "en") apply("en");
 
-  var toast = document.getElementById("toast");
-  var timer;
-  document.querySelectorAll("[data-wa]").forEach(function (el) {
-    el.addEventListener("click", function (ev) {
-      ev.preventDefault();
-      toast.textContent = TOAST[lang];
-      toast.classList.add("on");
-      clearTimeout(timer);
-      timer = setTimeout(function () { toast.classList.remove("on"); }, 4200);
-    });
-  });
 
   var reduced = false;
   try { reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
