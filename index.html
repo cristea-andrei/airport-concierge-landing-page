@@ -206,6 +206,30 @@ section{padding-block:clamp(58px,13vw,116px); position:relative}
   text-transform:uppercase; color:var(--brass); margin-bottom:9px}
 .note p{color:var(--muted); font-size:.9rem}
 
+/* ---- pricing ------------------------------------------------------------ */
+.plans{display:grid; gap:16px}
+.plan{display:flex; flex-direction:column; border:1px solid var(--line); border-radius:var(--r);
+  padding:24px 20px; background:linear-gradient(165deg,rgba(26,26,32,.72),rgba(19,19,22,.72));
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px)}
+.plan--pick{border-color:var(--brass-dim); background:linear-gradient(165deg,rgba(40,34,20,.6),rgba(22,20,16,.72))}
+.plan-top{display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:26px}
+.plan-name{font-family:var(--f-mono); font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--brass)}
+.plan-tag{font-family:var(--f-mono); font-size:.56rem; letter-spacing:.14em; text-transform:uppercase;
+  color:#171203; background:var(--brass); border-radius:999px; padding:4px 9px}
+.plan-price{display:flex; align-items:flex-end; gap:9px; margin:16px 0 4px; min-height:42px}
+.plan-price b{font-family:var(--f-display); font-weight:600; font-variation-settings:"wdth" 110;
+  font-size:2.5rem; line-height:1; letter-spacing:-.02em; color:var(--text); font-variant-numeric:tabular-nums}
+.plan-price b.ask{font-size:1.5rem; color:var(--brass-hi)}
+.plan-unit{font-size:.8rem; color:var(--faint); margin-bottom:20px}
+.plan ul{list-style:none; margin:0; padding:20px 0 0; display:grid; gap:11px; border-top:1px solid var(--line)}
+.plan li{display:flex; gap:10px; align-items:flex-start; font-size:.88rem; color:var(--muted)}
+.plan li .ico{width:15px; height:15px; color:var(--brass-dim); margin-top:3px}
+.plan li b{color:var(--text); font-weight:600}
+.pay{margin-top:26px; display:grid; gap:18px}
+.pay .note{margin-top:0}
+.pay-cta{display:flex; flex-wrap:wrap; align-items:center; gap:14px}
+.pay-cta .btn{flex:1 1 260px}
+
 /* ---- faq --------------------------------------------------------------- */
 .faq{display:grid}
 .faq details{border-bottom:1px solid var(--line)}
@@ -274,6 +298,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
   .ticket{margin:-62px 20px 0}
   .board{grid-template-columns:1fr 1fr; gap:48px}
   .svc{grid-template-columns:1fr 1fr; column-gap:44px}
+  .plans{grid-template-columns:repeat(3,1fr); gap:20px}
   .svc li:nth-last-child(2){border-bottom:0}
   .f-grid{grid-template-columns:1.5fr 1fr 1fr 1fr}
 }
@@ -473,11 +498,11 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
         </li>
         <li>
           <svg class="ico" aria-hidden="true"><use href="#i-droplets"></use></svg>
-          <div><b data-i18n="v3t">Spălare înainte de retur</b><p data-i18n="v3d">Opțional. Găsești mașina curată, interior și exterior, la ora la care aterizezi.</p></div>
+          <div><b data-i18n="v3t">Spălare înainte de retur</b><p data-i18n="v3d">Exteriorul este inclus în ambele pachete. Interiorul vine cu pachetul Complet.</p></div>
         </li>
         <li>
           <svg class="ico" aria-hidden="true"><use href="#i-fuel"></use></svg>
-          <div><b data-i18n="v4t">Alimentare sau încărcare electrică</b><p data-i18n="v4d">Opțional, cu bonul fiscal atașat la fișa de custodie. Plătești exact cât scrie pe bon.</p></div>
+          <div><b data-i18n="v4t">Alimentare sau încărcare electrică</b><p data-i18n="v4d">Inclus în pachetul Complet. Combustibilul îl plătești separat, exact cât scrie pe bon.</p></div>
         </li>
         <li>
           <svg class="ico" aria-hidden="true"><use href="#i-snowflake"></use></svg>
@@ -485,12 +510,75 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
         </li>
         <li>
           <svg class="ico" aria-hidden="true"><use href="#i-car-front"></use></svg>
-          <div><b data-i18n="v6t">Service sau ITP în timpul călătoriei</b><p data-i18n="v6d">Pentru sejururi lungi, ducem mașina la reprezentanță și o aducem înapoi până la retur.</p></div>
+          <div><b data-i18n="v6t">Service sau ITP în timpul călătoriei</b><p data-i18n="v6d">Pachetul La cerere: ducem mașina la reprezentanță și o aducem înapoi până te întorci.</p></div>
         </li>
       </ul>
-      <div class="note">
-        <b data-i18n="pr-l">Tarife</b>
-        <p data-i18n="pr-d">Preț fix, comunicat la telefon înainte de rezervare, în funcție de aeroport și de numărul de zile. Fără taxe de noapte, fără suprataxe pentru zboruri întârziate. Ce ți se spune la telefon este ce plătești la retur.</p>
+    </div>
+  </section>
+
+  <section id="tarife">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-file-text"></use></svg><span data-i18n="eb-price">Tarife</span></p>
+        <h2 data-i18n="h-price">Alege pachetul</h2>
+        <p class="lead" data-i18n="l-price">Prețul pachetului acoperă drumul dus și întors, cu tot ce scrie în listă. Parcarea se plătește separat, pe zile.</p>
+      </div>
+
+      <div class="plans">
+        <article class="plan">
+          <div class="plan-top"><span class="plan-name" data-i18n="k1n">Esențial</span></div>
+          <p class="plan-price"><b>45 €</b></p>
+          <p class="plan-unit" data-i18n="k1u">per călătorie, dus și întors</p>
+          <ul>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k1a">Preluare la Plecări, predare la Sosiri</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k1b"><b>Spălare exterioară</b> înainte să te întorci</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k1c">Parcare acoperită, cu supraveghere video</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k1d">Fișă de stare cu 14 fotografii, la dus și la întors</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k1e">Urmărim zborul — întârzierile nu te costă nimic</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k1f">Un singur șofer desemnat, cu nume dinainte</span></li>
+          </ul>
+        </article>
+
+        <article class="plan plan--pick">
+          <div class="plan-top"><span class="plan-name" data-i18n="k2n">Complet</span><span class="plan-tag" data-i18n="k2tag">cel mai cerut</span></div>
+          <p class="plan-price"><b>95 €</b></p>
+          <p class="plan-unit" data-i18n="k2u">per călătorie, dus și întors</p>
+          <ul>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k2a"><b>Tot ce include Esențial</b></span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k2b"><b>Spălare interioară</b> completă, nu doar aspirat</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k2c">Alimentare sau încărcare electrică</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k2d">Combustibilul și curentul se plătesc separat, pe bon</span></li>
+          </ul>
+        </article>
+
+        <article class="plan">
+          <div class="plan-top"><span class="plan-name" data-i18n="k3n">La cerere</span></div>
+          <p class="plan-price"><b class="ask" data-i18n="k3p">Preț la telefon</b></p>
+          <p class="plan-unit" data-i18n="k3u">stabilit înainte, niciodată după</p>
+          <ul>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k3a">ITP sau revizie la reprezentanță</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k3b">Schimb de anvelope, vulcanizare</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k3c">Cumpărăturile te așteaptă în portbagaj</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-circle-check"></use></svg><span data-i18n="k3d">Orice altceva ai nevoie cât ești plecat</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="pay">
+        <div class="note">
+          <b data-i18n="prk-l">Parcarea, separat</b>
+          <p data-i18n="prk-d">30 lei pe zi, acoperită și supravegheată video. De la a opta zi, 20 lei pe zi. Plătești doar zilele în care mașina chiar stă la noi.</p>
+        </div>
+        <div class="note">
+          <b data-i18n="pfix-l">Fără surprize</b>
+          <p data-i18n="pfix-d">Fără taxe de noapte, fără suprataxe de weekend, fără penalizări dacă zborul întârzie. Ce ți se spune la telefon este exact ce plătești la retur, cu bon fiscal.</p>
+        </div>
+        <div class="pay-cta">
+          <a class="btn btn-primary" href="tel:+40741220600">
+            <svg class="ico" aria-hidden="true"><use href="#i-phone"></use></svg>
+            <span data-i18n="cta-call">Sună-ne 24/7</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -581,6 +669,7 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
         <ul>
           <li><a href="#cum" data-i18n="f-l1">Cum funcționează</a></li>
           <li><a href="#servicii" data-i18n="f-l2">Servicii</a></li>
+          <li><a href="#tarife" data-i18n="f-l5">Tarife</a></li>
           <li><a href="#soferi" data-i18n="f-l3">Șoferii</a></li>
           <li><a href="#intrebari" data-i18n="f-l4">Întrebări</a></li>
         </ul>
@@ -658,15 +747,37 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
     "v2t": "Covered, monitored parking",
     "v2d": "An enclosed space with video surveillance and controlled access, off airport grounds.",
     "v3t": "Washed before you return",
-    "v3d": "Optional. You find the car clean inside and out at the hour you land.",
+    "v3d": "The exterior is included in both packages. The interior comes with Complete.",
     "v4t": "Refuelling or EV charging",
-    "v4d": "Optional, with the receipt attached to your custody sheet. You pay exactly what the receipt says.",
+    "v4d": "Included in the Complete package. You pay for the fuel itself separately, exactly what the receipt says.",
     "v5t": "Winter preparation",
     "v5d": "The car is cleared of snow, de-iced and warmed up before you step out of the terminal.",
     "v6t": "Servicing or inspection while you travel",
-    "v6d": "On longer trips we take the car to your dealership and have it back before you land.",
-    "pr-l": "Pricing",
-    "pr-d": "A fixed price, quoted on the phone before you book, based on the airport and the number of days. No night surcharge, no penalty for a delayed flight. What you are told on the phone is what you pay on return.",
+    "v6d": "The On request package: we take the car to your dealership and have it back before you land.",
+    "eb-price": "Pricing", "h-price": "Pick a package",
+    "l-price": "The package price covers the trip out and the trip back, with everything on the list. Parking is charged separately, by the day.",
+    "k1n": "Essential", "k1u": "per trip, out and back",
+    "k1a": "Picked up at Departures, returned at Arrivals",
+    "k1b": "<b>Exterior wash</b> before you get back",
+    "k1c": "Covered parking under video surveillance",
+    "k1d": "Condition report with 14 photographs, both ways",
+    "k1e": "We track the flight — delays cost you nothing",
+    "k1f": "One assigned driver, named in advance",
+    "k2n": "Complete", "k2tag": "most asked for", "k2u": "per trip, out and back",
+    "k2a": "<b>Everything in Essential</b>",
+    "k2b": "<b>Full interior clean</b>, not just a vacuum",
+    "k2c": "Refuelling or EV charging",
+    "k2d": "Fuel and electricity billed separately, at the receipt",
+    "k3n": "On request", "k3p": "Priced by phone", "k3u": "agreed up front, never after",
+    "k3a": "Inspection or a dealership service",
+    "k3b": "New tyres, seasonal changeover",
+    "k3c": "Your shopping waiting in the boot",
+    "k3d": "Whatever else you need while you are away",
+    "prk-l": "Parking, separately",
+    "prk-d": "30 lei a day, covered and under video surveillance. From the eighth day, 20 lei a day. You pay only for the days the car is actually with us.",
+    "pfix-l": "No surprises",
+    "pfix-d": "No night fees, no weekend surcharge, no penalty when your flight is late. What you are told on the phone is exactly what you pay on return, with a receipt.",
+    "f-l5": "Pricing",
     "eb-drv": "The drivers", "h-drv": "Who gets your key",
     "l-drv": "We do not use day labour. Every driver goes through the same checks before touching a customer's car.",
     "d1t": "Ten years of driving, minimum",
@@ -808,6 +919,8 @@ footer{border-top:1px solid var(--line); padding-block:44px 34px; background:rgb
       arm(leg.querySelectorAll(".step"), true);
     });
     arm(document.querySelectorAll(".port"), true);
+    arm(document.querySelectorAll(".plan"), true);
+    arm(document.querySelectorAll(".pay > *"), true);
     document.querySelectorAll(".svc").forEach(function (list) {
       arm(list.querySelectorAll("li"), true);
     });
